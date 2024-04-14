@@ -20,17 +20,20 @@ public class Main {
         double valorCasa1 = interfaceUsuario.valorImovelDigitado();
         int prazoDoFinanciamento1 = interfaceUsuario.prazoDoFinanciamento();
         double taxaJuros1 = interfaceUsuario.taxaDeJuros();
-        listaDeFinanciamentos.add(new Casa(valorCasa1, prazoDoFinanciamento1, taxaJuros1));
+        double areaConstruidaCasa1 = interfaceUsuario.areaConstruida();
+        double areaTerrenoCasa1 = interfaceUsuario.areaTerreno();
 
-        Casa casa2 = new Casa(25000,24,0.05);
+        listaDeFinanciamentos.add(new Casa(valorCasa1, prazoDoFinanciamento1, taxaJuros1,areaConstruidaCasa1,areaTerrenoCasa1));
+
+        Casa casa2 = new Casa(25000,24,0.05,1000,1000);
         listaDeFinanciamentos.add(casa2);
         // Apartamento
-        Apartamento apartamento1 = new Apartamento(400000, 25, 0.1);
+        Apartamento apartamento1 = new Apartamento(400000, 25, 0.1,5,69);
         listaDeFinanciamentos.add(apartamento1);
-        Apartamento apartamento2 = new Apartamento(5000,65,0.2);
+        Apartamento apartamento2 = new Apartamento(5000,65,0.2,4,25);
         listaDeFinanciamentos.add(apartamento2);
         //Terreno
-        Terreno terreno1 = new Terreno(20000,28,0.5);
+        Terreno terreno1 = new Terreno(20000,28,0.5,"Comercial");
         listaDeFinanciamentos.add(terreno1);
 
 

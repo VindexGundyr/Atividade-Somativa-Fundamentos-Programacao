@@ -1,6 +1,4 @@
 package util;
-
-import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.util.Scanner;
 
 public class InterfaceUsuario {
@@ -55,5 +53,39 @@ public class InterfaceUsuario {
         System.out.println("A taxa de juros digitada foi: " + taxaDeJurosDigitada + " %");
        // scanner.close();
         return  taxaDeJurosDigitada;
+    }
+
+    public double areaConstruida () {
+        double areaConstruida;
+        Scanner scanner = new Scanner(System.in);
+
+        do {
+            System.out.println("Por favor, insira a área construída: ");
+            areaConstruida = scanner.nextDouble();
+
+            if(areaConstruida <= 0) {
+                System.out.println("Valor inválido.");
+            }
+        } while (areaConstruida <= 0);
+
+        System.out.println("A área construída é: " + areaConstruida);
+        return areaConstruida;
+    }
+
+    public double areaTerreno () {
+        double areaTerreno;
+        Scanner scanner = new Scanner(System.in);
+
+        do {
+            System.out.println("Por favor, insira a área do terreno: ");
+            areaTerreno = scanner.nextDouble();
+
+            if(areaTerreno <= 0) {
+                System.out.println("Valor inválido.");
+            }
+        } while (areaTerreno <= 0);
+
+        System.out.println("A área do terreno é: " + areaTerreno);
+        return areaTerreno;
     }
 }
