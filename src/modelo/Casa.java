@@ -1,5 +1,8 @@
 package modelo;
 
+import util.AcrescimoMaiorDoQueJurosException;
+import util.DescontoMaiorDoQueJurosException;
+
 public class Casa extends Financiamento{
 
     private double areaConstruida;
@@ -27,7 +30,39 @@ public class Casa extends Financiamento{
         this.areaTerreno = areaTerreno;
         return areaTerreno;
     }
+
+    private void  metodoAcrescimoMaiorDoQueJuros(double valorJuros, double valorAcrescimo) throws AcrescimoMaiorDoQueJurosException {
+
+        if (valorAcrescimo > valorJuros) {
+            throw new AcrescimoMaiorDoQueJurosException("O valor do juros é maior do que o valor do acrescimo.");
+        }
+    }
+
+    private void  metodoDescontoMaiorDoQueJuros(double valorJuros, double valorDesconto) throws DescontoMaiorDoQueJurosException {
+
+        if (valorDesconto > valorJuros) {
+            throw new DescontoMaiorDoQueJurosException("O valor do juros é maior do que o valor do desconto.");
+        }
+    }
     public double calcularPagamentoMes(){
-       return (this.valorDesejadoImovel / (this.prazoDoFinanciamento * 12)) * (1 + (this.taxaAnualDeJuros / 12)) + 80;
+        double valorJuros = 40;
+        double valorAcrescimo = 80;
+        double valorDesconto = 80;
+
+        try {
+            metodoDescontoMaiorDoQueJuros(valorJuros,valorDesconto);
+        }catch(DescontoMaiorDoQueJurosException e){
+            valorDesconto = valorJuros;
+        }
+
+        try {
+            metodoAcrescimoMaiorDoQueJuros(valorJuros,valorAcrescimo);
+        }catch(AcrescimoMaiorDoQueJurosException e ){
+
+            valorAcrescimo = valorJuros;
+
+        }
+
+       return (this.valorDesejadoImovel / (this.prazoDoFinanciamento * 12)) * (1 + (this.taxaAnualDeJuros / 12)) + valorAcrescimo - valorDesconto;
     }
 }

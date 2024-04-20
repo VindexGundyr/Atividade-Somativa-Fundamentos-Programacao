@@ -1,20 +1,27 @@
 package util;
 import java.util.Scanner;
 
+
+
 public class InterfaceUsuario {
     public double valorImovelDigitado () {
         Scanner scanner = new Scanner(System.in);
-        double valorDigitadoImovel;
+        double valorDigitadoImovel = 0;
 
-        do {
-            System.out.println("Por favor, insira o valor do imóvel: ");
-            valorDigitadoImovel = scanner.nextDouble();
+            do {
+                try {
+                    System.out.println("Por favor, insira o valor do imóvel: ");
+                    valorDigitadoImovel = scanner.nextDouble();
 
-            if (valorDigitadoImovel <= 0) {
-                System.out.println("O valor digitado é inválido.");
-            }
+                    if (valorDigitadoImovel <= 0) {
+                        System.out.println("O valor digitado é inválido.");
 
-        }while (valorDigitadoImovel <= 0);
+                    }
+                } catch (Exception e) {
+                    System.out.println("O valor digitado é inválido.");
+                    scanner.next();
+                }
+            } while (valorDigitadoImovel <= 0);
 
         System.out.println("O valor do imovél desejado é: " + valorDigitadoImovel);
        // scanner.close();
@@ -23,16 +30,23 @@ public class InterfaceUsuario {
 
     public int prazoDoFinanciamento () {
         Scanner scanner = new Scanner(System.in);
-        int prazoFinanciamentoDigitado;
+        int prazoFinanciamentoDigitado = 0;
 
-        do {
-            System.out.println("Por favor, insira o prazo desejado do financiamento (em anos) : ");
-            prazoFinanciamentoDigitado = scanner.nextInt();
+            do {
+                try {
+                    System.out.println("Por favor, insira o prazo desejado do financiamento (em anos) : ");
+                    prazoFinanciamentoDigitado = scanner.nextInt();
 
-            if (prazoFinanciamentoDigitado <= 0 ) {
-                System.out.println("Prazo do financiamento inválido.");
-            }
-        } while(prazoFinanciamentoDigitado <= 0);
+                    if (prazoFinanciamentoDigitado <= 0) {
+                        System.out.println("Prazo do financiamento inválido.");
+
+                    }
+                } catch(Exception e) {
+                    System.out.println("O valor digitado é inválido.");
+                    scanner.next();
+                }
+            } while (prazoFinanciamentoDigitado <= 0);
+
 
         System.out.println("O prazo desejado por você é o de : " + prazoFinanciamentoDigitado + " anos");
        // scanner.close();
@@ -41,49 +55,68 @@ public class InterfaceUsuario {
 
     public double taxaDeJuros() {
         Scanner scanner = new Scanner(System.in);
-        double taxaDeJurosDigitada;
+        double taxaDeJurosDigitada = 0;
+
 
         do {
-            System.out.println("Por favor, insira a taxa de juros desejada: ");
-            taxaDeJurosDigitada = scanner.nextDouble();
-            if(taxaDeJurosDigitada <= 0) {
-                System.out.println("Taxa de juros inválida.");
-            }
-        } while (taxaDeJurosDigitada <= 0);
+                try {
+                    System.out.println("Por favor, insira a taxa de juros desejada: ");
+                    taxaDeJurosDigitada = scanner.nextDouble();
+                    if (taxaDeJurosDigitada <= 0) {
+                        System.out.println("Taxa de juros inválida.");
+                    }
+                } catch(Exception e) {
+                    System.out.println("O valor digitado é inválido.");
+                    scanner.next();
+                }
+            } while (taxaDeJurosDigitada <= 0);
+
+
         System.out.println("A taxa de juros digitada foi: " + taxaDeJurosDigitada + " %");
        // scanner.close();
         return  taxaDeJurosDigitada;
     }
 
     public double areaConstruida () {
-        double areaConstruida;
+        double areaConstruida = 0;
         Scanner scanner = new Scanner(System.in);
 
-        do {
-            System.out.println("Por favor, insira a área construída: ");
-            areaConstruida = scanner.nextDouble();
+            do {
+                try {
+                System.out.println("Por favor, insira a área construída: ");
+                areaConstruida = scanner.nextDouble();
 
-            if(areaConstruida <= 0) {
-                System.out.println("Valor inválido.");
-            }
-        } while (areaConstruida <= 0);
+                if (areaConstruida <= 0) {
+                    System.out.println("Valor inválido.");
+                }
+            } catch (Exception e) {
+                    System.out.println("O valor digitado é inválido.");
+                    scanner.next();
+                }
+            }while (areaConstruida <= 0);
+
 
         System.out.println("A área construída é: " + areaConstruida);
         return areaConstruida;
     }
 
     public double areaTerreno () {
-        double areaTerreno;
+        double areaTerreno = 0;
         Scanner scanner = new Scanner(System.in);
+            do {
 
-        do {
-            System.out.println("Por favor, insira a área do terreno: ");
-            areaTerreno = scanner.nextDouble();
+                try {
+                System.out.println("Por favor, insira a área do terreno: ");
+                areaTerreno = scanner.nextDouble();
 
-            if(areaTerreno <= 0) {
-                System.out.println("Valor inválido.");
-            }
-        } while (areaTerreno <= 0);
+                if (areaTerreno <= 0) {
+                    System.out.println("Valor inválido.");
+
+                }} catch (Exception e) {
+                    System.out.println("O valor digitado é inválido.");
+                    scanner.next();
+                }
+            } while (areaTerreno <= 0);
 
         System.out.println("A área do terreno é: " + areaTerreno);
         return areaTerreno;
