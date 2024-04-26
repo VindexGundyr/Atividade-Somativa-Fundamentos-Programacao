@@ -1,9 +1,9 @@
 package modelo;
-
+import java.io.Serializable;
 import util.AcrescimoMaiorDoQueJurosException;
 import util.DescontoMaiorDoQueJurosException;
 
-public class Casa extends Financiamento{
+public class Casa extends Financiamento implements Serializable  {
 
     private double areaConstruida;
     private double areaTerreno;
@@ -64,5 +64,15 @@ public class Casa extends Financiamento{
         }
 
        return (this.valorDesejadoImovel / (this.prazoDoFinanciamento * 12)) * (1 + (this.taxaAnualDeJuros / 12)) + valorAcrescimo - valorDesconto;
+    }
+
+
+    public String toString() {
+        return "Valor do financiamento: CASA" + "\n" +
+                "Valor do imóvel: R$ " + getValorDesejadoImovel() + "\n" +
+                "Prazo do financiamento: " + getPrazoDoFinanciamento() + " anos\n" +
+                "Taxa de juros: " + getTaxaAnualDeJuros() + "% ao ano\n" +
+                "Área construída: " + getAreaConstruida() + " m²\n" +
+                "Área do terreno: " + getAreaTerreno() + " m²";
     }
 }

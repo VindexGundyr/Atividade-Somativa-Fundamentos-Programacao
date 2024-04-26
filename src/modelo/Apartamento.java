@@ -1,6 +1,6 @@
 package modelo;
-
-public class Apartamento extends Financiamento{
+import java.io.Serializable;
+public class Apartamento extends Financiamento implements Serializable {
 
     private double vagasGaragem;
     private double numeroAndar;
@@ -39,5 +39,13 @@ public class Apartamento extends Financiamento{
 
         return valorDaPrestacao;
     }
-
+    @Override
+    public String toString() {
+        return "Valor do financiamento: APARTAMENTO" + "\n" +
+        "Valor do imóvel: R$ " + getValorDesejadoImovel() + "\n" +
+                "Prazo do financiamento: " + getPrazoDoFinanciamento() + " anos\n" +
+                "Taxa de juros: " + getTaxaAnualDeJuros() + "% ao ano\n" +
+                "Vagas de garagem: " + getVagasGaragem() + "\n" +
+                "Número do andar: " + getNumeroAndar();
+    }
 }

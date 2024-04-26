@@ -1,7 +1,7 @@
 package modelo;
+import java.io.Serializable;
 
-
-public abstract class Financiamento {
+public abstract class Financiamento implements Serializable {
     protected double valorDesejadoImovel;
     protected int prazoDoFinanciamento;
     protected double taxaAnualDeJuros;
@@ -42,6 +42,7 @@ public abstract class Financiamento {
         System.out.println("Taxa anual de juros: " + taxaAnualDeJuros + "%");
         System.out.println("Valor total do financiamento: R$ " + valorTotalDoFinanciamento);
     }
+
 
 }
 
